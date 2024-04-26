@@ -1,7 +1,10 @@
 type Props = {
   id: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
 export const Textarea = (props: Props) => {
-  return <textarea id={props.id} className="textarea textarea-bordered w-full" placeholder="output"></textarea>;
+  const { id, value, onChange } = props;
+  return <textarea id={id} className="textarea textarea-bordered w-full" value={value} onChange={onChange} />;
 };
