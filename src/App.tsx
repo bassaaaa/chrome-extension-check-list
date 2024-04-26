@@ -1,4 +1,3 @@
-import "./App.css";
 import { ToggleWithLabel } from "./components/ToggleWithLabel";
 
 const items = [
