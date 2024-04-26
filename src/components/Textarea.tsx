@@ -1,3 +1,7 @@
 export const Textarea = () => {
-  return <textarea className="textarea textarea-bordered w-full" placeholder="output"></textarea>;
+  return (
+    <div className="mt-2">
+      <textarea className="textarea textarea-bordered w-full" placeholder="output"></textarea>
+    </div>
+  );
 };
