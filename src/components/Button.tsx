@@ -1,14 +1,15 @@
 import { ReactNode } from "react";
 
 type Prop = {
-  onClick: () => void;
   children: ReactNode;
+  onClick: () => void;
 };
 
 export const ButtonEnabled = (props: Prop) => {
+  const { children, onClick } = props;
   return (
-    <button onClick={props.onClick} className="btn btn-outline btn-success mx-auto">
-      {props.children}
+    <button onClick={onClick} className="btn btn-outline btn-success mx-auto">
+      {children}
     </button>
   );
 };
