@@ -1,5 +1,5 @@
 import { ListMenu } from "./components/ListMenu";
-import { CopyButton } from "./components/CopyButton";
+import { ButtonEnabled } from "./components/Button";
 import { Textarea } from "./components/Textarea";
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
     <div className="p-2 w-96 flex flex-col gap-2">
       <ListMenu />
       <Textarea id="textarea" />
-      <CopyButton onClick={handleCopy} />
+      <ButtonEnabled onClick={handleCopy}>コピー</ButtonEnabled>
     </div>
   );
 };
