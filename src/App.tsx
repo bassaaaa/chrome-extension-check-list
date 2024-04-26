@@ -1,16 +1,26 @@
 import { ToggleWithLabel } from "./components/ToggleWithLabel";
 
 const items = [
-  { id: 1, label: "item 1" },
-  { id: 2, label: "item 2" },
-  { id: 3, label: "item 3" },
-  { id: 4, label: "item 4" },
-  { id: 5, label: "item 5" },
+  {
+    id: 1,
+    label: "チェック項目1",
+    tip: "補足事項1",
+  },
+  {
+    id: 2,
+    label: "チェック項目2",
+    tip: "補足事項2",
+  },
+  {
+    id: 3,
+    label: "チェック項目3",
+    tip: "補足事項3",
+  },
 ];
 
 function App() {
   return (
-    <div className="App">
+    <div className="px-2 py-5">
       {items.map((item) => (
         <ToggleWithLabel {...item} />
       ))}
