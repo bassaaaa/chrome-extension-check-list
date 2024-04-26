@@ -1,4 +1,4 @@
-import { CopyButton } from "./components/Button";
+import { CopyButton } from "./components/CopyButton";
 import { Textarea } from "./components/Textarea";
 import { ToggleWithLabel } from "./components/ToggleWithLabel";
 import { checkList } from "./data/checkList";
