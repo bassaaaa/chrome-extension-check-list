@@ -1,10 +1,6 @@
-type Props = {
-  id: number;
-  label: string;
-  tip: string;
-};
+import { CheckListItem } from "../Types";
 
-export const ToggleWithLabel = (props: Props) => {
+export const ToggleWithLabel = (props: CheckListItem) => {
   const { label, tip } = props;
   return (
     <div className="tooltip tooltip-bottom tooltip-accent mx-auto" data-tip={tip}>
