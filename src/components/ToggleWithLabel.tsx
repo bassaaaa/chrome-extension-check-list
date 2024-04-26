@@ -3,8 +3,8 @@ import { CheckListItem } from "../Types";
 export const ToggleWithLabel = (props: CheckListItem) => {
   const { label, tip } = props;
   return (
-    <div className="tooltip tooltip-bottom tooltip-success mx-auto" data-tip={tip}>
-      <div className="form-control w-80">
+    <div className="tooltip tooltip-bottom tooltip-success" data-tip={tip}>
+      <div className="form-control">
         <label className="cursor-pointer label">
           <span className="label-text">{label}</span>
           <input type="checkbox" className="toggle toggle-success" />
