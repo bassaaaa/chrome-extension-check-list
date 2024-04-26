@@ -1,3 +1,3 @@
 export const Textarea = () => {
-  return <textarea className="textarea textarea-success w-full" placeholder="Bio"></textarea>;
+  return <textarea className="textarea textarea-bordered w-full" placeholder="output"></textarea>;
 };
