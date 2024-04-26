@@ -6,7 +6,7 @@ export const ListMenu = () => {
     <ul className="menu bg-base-200 rounded-box">
       <li className="menu-title items-center">{checkList.title}</li>
       {checkList.items.map((item) => (
-        <li>
+        <li key={item.id}>
           <ToggleWithLabel {...item} />
         </li>
       ))}
