@@ -2,7 +2,7 @@ import { ListMenu } from "./components/ListMenu";
 import { CopyButton } from "./components/CopyButton";
 import { Textarea } from "./components/Textarea";
 
-function App() {
+const App = () => {
   const handleCopy: () => void = () => {
     const textarea = document.getElementById("textarea") as HTMLTextAreaElement;
     const text = textarea.value !== "" ? textarea.value : null;
@@ -22,6 +22,6 @@ function App() {
       <CopyButton onClick={handleCopy} />
     </div>
   );
-}
+};
 
 export default App;
