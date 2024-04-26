@@ -20,10 +20,15 @@ const items = [
 
 function App() {
   return (
-    <div className="px-2 py-5">
-      {items.map((item) => (
-        <ToggleWithLabel {...item} />
-      ))}
+    <div className="p-2 w-80">
+      <ul className="menu bg-base-200 rounded-box">
+        <li className="menu-title items-center">チェックリスト</li>
+        {items.map((item) => (
+          <li>
+            <ToggleWithLabel {...item} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
