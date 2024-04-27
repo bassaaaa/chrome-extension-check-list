@@ -1,5 +1,6 @@
 type CheckList = {
   title: string;
+  confirmedStatus: string;
   items: {
     id: number;
     label: string;
@@ -9,6 +10,7 @@ type CheckList = {
 
 export const checkList: CheckList = {
   title: "チェックリスト",
+  confirmedStatus: "ok",
   items: [
     {
       id: 1,

@@ -7,7 +7,7 @@ import { ToggleWithLabel } from "./components/ToggleWithLabel";
 
 const App = () => {
   const [text, setText] = useState("");
-  const [checkedItems, setCheckedItems] = useState<{ [id: number]: boolean }>([false, false, false]);
+  const [checkedItems, setCheckedItems] = useState<{ [id: number]: boolean }>({});
 
   const handleCopy: () => void = () => {
     if (text === "") {
@@ -22,9 +22,12 @@ const App = () => {
   const handleCheckboxChange = (id: number, checked: boolean) => {
     setCheckedItems((prevState) => {
       const updatedItems = { ...prevState, [id]: checked };
-      const checkedLabels = Object.keys(updatedItems).filter((id: string) => updatedItems[parseInt(id)]);
-      const checkedText = checkedLabels.map((id) => checkList.items.find((item) => item.id === parseInt(id))?.label).join(", ");
-      setText(checkedText);
+      const checkedLabels = Object.keys(updatedItems)
+        .filter((id: string) => updatedItems[parseInt(id)])
+        .map((checkedId) => checkList.items.find((item) => item.id === parseInt(checkedId)))
+        .filter((item) => item !== undefined)
+        .map((item) => item!.label);
+      setText(checkedLabels.map((label) => `${label}: ${checkList.confirmedStatus}`).join("\n"));
       return updatedItems;
     });
   };
