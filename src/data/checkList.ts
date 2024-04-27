@@ -10,7 +10,7 @@ type CheckList = {
 
 export const checkList: CheckList = {
   title: "チェックリスト",
-  confirmedStatus: "ok",
+  confirmedStatus: "✓",
   items: [
     {
       id: 1,
