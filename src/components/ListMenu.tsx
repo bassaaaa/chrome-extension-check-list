@@ -1,15 +1,15 @@
-import { checkList } from "../data/checkList";
-import { ToggleWithLabel } from "./ToggleWithLabel";
+type Props = {
+  title: string;
+  children: React.ReactNode[];
+};
 
-export const ListMenu = () => {
+export const ListMenu = (props: Props) => {
+  const { title, children } = props;
+
   return (
     <ul className="menu bg-base-200 rounded-box">
-      <li className="menu-title items-center">{checkList.title}</li>
-      {checkList.items.map((item) => (
-        <li key={item.id}>
-          <ToggleWithLabel {...item} />
-        </li>
-      ))}
+      <li className="menu-title items-center">{title}</li>
+      {children}
     </ul>
   );
 };
