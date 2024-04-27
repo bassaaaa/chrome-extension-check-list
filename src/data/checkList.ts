@@ -6,6 +6,7 @@ type CheckList = {
     label: string;
     tip: string;
   }[];
+  outputText: string;
 };
 
 export const checkList: CheckList = {
@@ -28,4 +29,5 @@ export const checkList: CheckList = {
       tip: "補足事項3",
     },
   ],
+  outputText: "以下のとおりチェック完了しました。",
 };
