@@ -7,6 +7,7 @@ import { ToggleWithLabel } from "./components/ToggleWithLabel";
 
 const App = () => {
   const [text, setText] = useState("");
+  const [checkedItems, setCheckedItems] = useState<{ [id: number]: boolean }>([false, false, false]);
 
   const handleCopy: () => void = () => {
     if (text === "") {
@@ -18,12 +19,22 @@ const App = () => {
     }
   };
 
+  const handleCheckboxChange = (id: number, checked: boolean) => {
+    setCheckedItems((prevState) => {
+      const updatedItems = { ...prevState, [id]: checked };
+      const checkedLabels = Object.keys(updatedItems).filter((id: string) => updatedItems[parseInt(id)]);
+      const checkedText = checkedLabels.map((id) => checkList.items.find((item) => item.id === parseInt(id))?.label).join(", ");
+      setText(checkedText);
+      return updatedItems;
+    });
+  };
+
   return (
     <div className="p-2 w-96 flex flex-col gap-2">
       <ListMenu title={checkList.title}>
         {checkList.items.map((item) => (
           <li key={item.id}>
-            <ToggleWithLabel {...item} />
+            <ToggleWithLabel {...item} checked={checkedItems[item.id] || false} onChange={(e) => handleCheckboxChange(item.id, e.target.checked)} />
           </li>
         ))}
       </ListMenu>

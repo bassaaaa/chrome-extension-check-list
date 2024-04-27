@@ -1,4 +1,11 @@
-import { CheckList } from "../Types";
+type CheckList = {
+  title: string;
+  items: {
+    id: number;
+    label: string;
+    tip: string;
+  }[];
+};
 
 export const checkList: CheckList = {
   title: "チェックリスト",
