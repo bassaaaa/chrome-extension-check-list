@@ -4,18 +4,20 @@ import { Textarea } from "./components/Textarea";
 import { useState } from "react";
 import { checkList } from "./data/checkList";
 import { ToggleWithLabel } from "./components/ToggleWithLabel";
+import { Modal } from "./components/Modal";
 
 const App = () => {
   const [text, setText] = useState(checkList.outputText);
   const [checkedItems, setCheckedItems] = useState<{ [id: number]: boolean }>({});
 
   const handleCopy: () => void = () => {
-    if (text === "") {
-      console.log("No text to copy");
-    } else {
+    try {
       navigator.clipboard.writeText(text).then(() => {
-        console.log(text);
+        const modal = document.getElementById("my_modal_2") as HTMLDialogElement;
+        modal.showModal();
       });
+    } catch (error) {
+      console.error("コピーに失敗しました: ", error);
     }
   };
 
@@ -44,6 +46,7 @@ const App = () => {
       </ListMenu>
       <Textarea id="textarea" value={text} onChange={(e) => setText(e.target.value)} />
       <CopyButton onClick={handleCopy} disabled={text === ""} />
+      <Modal text={text} />
     </div>
   );
 };
