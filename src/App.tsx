@@ -6,7 +6,7 @@ import { checkList } from "./data/checkList";
 import { ToggleWithLabel } from "./components/ToggleWithLabel";
 
 const App = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(checkList.outputText);
   const [checkedItems, setCheckedItems] = useState<{ [id: number]: boolean }>({});
 
   const handleCopy: () => void = () => {
@@ -27,7 +27,8 @@ const App = () => {
         .map((checkedId) => checkList.items.find((item) => item.id === parseInt(checkedId)))
         .filter((item) => item !== undefined)
         .map((item) => item!.label);
-      setText(checkedLabels.map((label) => `${checkList.confirmedStatus}: ${label}`).join("\n"));
+      const outputText = checkList.outputText + "\n" + checkedLabels.map((label) => `${checkList.confirmedStatus}: ${label}`).join("\n");
+      setText(outputText);
       return updatedItems;
     });
   };
