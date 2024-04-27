@@ -27,7 +27,7 @@ const App = () => {
         .map((checkedId) => checkList.items.find((item) => item.id === parseInt(checkedId)))
         .filter((item) => item !== undefined)
         .map((item) => item!.label);
-      setText(checkedLabels.map((label) => `${label}: ${checkList.confirmedStatus}`).join("\n"));
+      setText(checkedLabels.map((label) => `${checkList.confirmedStatus}: ${label}`).join("\n"));
       return updatedItems;
     });
   };
