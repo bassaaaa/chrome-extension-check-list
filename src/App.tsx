@@ -36,7 +36,7 @@ const App = () => {
   };
 
   return (
-    <div className="p-2 w-96 flex flex-col gap-2">
+    <div className="p-2 w-96 flex flex-col gap-2 m-auto">
       <ListMenu title={checkList.title}>
         {checkList.items.map((item) => (
           <li key={item.id}>
