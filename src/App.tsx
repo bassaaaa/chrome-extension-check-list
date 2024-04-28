@@ -7,7 +7,7 @@ import { ToggleWithLabel } from "./components/ToggleWithLabel";
 import { Modal } from "./components/Modal";
 import { SelectBox } from "./components/SelectBox";
 
-const App = () => {
+export const App = () => {
   const [text, setText] = useState(checkList.outputText);
   const [checkedItems, setCheckedItems] = useState<{ [id: number]: boolean }>({});
   const [selectedCategory, setSelectedCategory] = useState<number>(-1);
@@ -62,5 +62,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
