@@ -10,7 +10,7 @@ export const SelectBox = (props: Props) => {
     <div className="mx-auto my-2 w-full">
       <select className="select select-bordered w-full" defaultValue="" onChange={onChange}>
         <option disabled value="">
-          選択してください
+          カテゴリを選択してください
         </option>
         {checkList.categories.map((category) => {
           return (
