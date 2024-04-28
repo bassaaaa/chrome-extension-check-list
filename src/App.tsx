@@ -42,21 +42,19 @@ export const App = () => {
     setSelectedCategory(selectedIndex);
   };
 
-  const CategoryItems = () => {
-    if (selectedCategory < 0) return null;
-
-    return checkList.categories[selectedCategory].items.map((item, key) => (
-      <li key={item.label}>
-        <ToggleWithLabel {...item} checked={checkedItems[key] || false} onChange={(e) => handleCheckboxChange(key, e.target.checked)} />
-      </li>
-    ));
-  };
-
   return (
     <div className="p-2 w-96 flex flex-col gap-2 m-auto">
       <ListMenu title={checkList.checkListTitle}>
         <SelectBox onChange={handleSelectBoxChange} />
-        <CategoryItems />
+        {selectedCategory < 0 ? (
+          <></>
+        ) : (
+          checkList.categories[selectedCategory].items.map((item, key) => (
+            <li key={item.label}>
+              <ToggleWithLabel {...item} checked={checkedItems[key] || false} onChange={(e) => handleCheckboxChange(key, e.target.checked)} />
+            </li>
+          ))
+        )}
       </ListMenu>
       <Textarea value={text} onChange={(e) => setText(e.target.value)} />
       <CopyButton onClick={handleCopy} disabled={text === ""} />
