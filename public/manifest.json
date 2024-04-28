@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "chrome-extension-check-list",
-  "version": "0.1",
+  "name": "Check List Generator",
+  "version": "1.0.0",
   "icons": {
     "16": "icon_16.png",
     "48": "icon_48.png",

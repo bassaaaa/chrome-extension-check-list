@@ -1,5 +1,5 @@
 {
-  "name": "chrome-extension-check-list",
+  "name": "check-list-generator",
   "private": true,
   "version": "0.0.0",
   "type": "module",

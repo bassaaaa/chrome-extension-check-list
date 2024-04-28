@@ -12,7 +12,7 @@ type CheckList = {
 };
 
 export const checkList: CheckList = {
-  checkListTitle: "チェックリスト",
+  checkListTitle: "Check List Generator",
   confirmedStatus: "✓",
   categories: [
     {
