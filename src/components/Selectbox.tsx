@@ -1,4 +1,4 @@
-export const Selectbox = () => {
+export const SelectBox = () => {
   return (
     <div className="mx-auto my-2 w-full">
       <select className="select select-bordered w-full" defaultValue="">
