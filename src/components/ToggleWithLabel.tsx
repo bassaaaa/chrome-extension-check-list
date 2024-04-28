@@ -11,9 +11,9 @@ export const ToggleWithLabel = (props: Props) => {
   return (
     <div className="tooltip tooltip-bottom tooltip-success" data-tip={tip}>
       <div className="form-control">
-        <label className="cursor-pointer label">
+        <label className="cursor-pointer label" htmlFor={label}>
           <span className="label-text text-left mr-2">{label}</span>
-          <input type="checkbox" className="toggle toggle-success" checked={checked} onChange={onChange} />
+          <input type="checkbox" id={label} className="toggle toggle-success" checked={checked} onChange={onChange} />
         </label>
       </div>
     </div>
