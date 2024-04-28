@@ -2,7 +2,7 @@ type CheckList = {
   checkListTitle: string;
   confirmedStatus: string;
   categories: {
-    title: string;
+    categoryName: string;
     items: {
       id: number;
       label: string;
@@ -17,7 +17,7 @@ export const checkList: CheckList = {
   confirmedStatus: "✓",
   categories: [
     {
-      title: "カテゴリ1",
+      categoryName: "カテゴリ1",
       items: [
         {
           id: 1,
@@ -37,7 +37,7 @@ export const checkList: CheckList = {
       ],
     },
     {
-      title: "カテゴリ2",
+      categoryName: "カテゴリ2",
       items: [
         {
           id: 1,

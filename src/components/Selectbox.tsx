@@ -14,8 +14,8 @@ export const SelectBox = (props: Props) => {
         </option>
         {checkList.categories.map((category) => {
           return (
-            <option key={category.title} value={category.title}>
-              {category.title}
+            <option key={category.categoryName} value={category.categoryName}>
+              {category.categoryName}
             </option>
           );
         })}
