@@ -12,7 +12,7 @@ export const Modal = (props: Props) => {
         <p className="py-4 whitespace-pre-wrap">{text}</p>
       </div>
       <form method="dialog" className="modal-backdrop">
-        <button>close</button>
+        <button type="button">close</button>
       </form>
     </dialog>
   );
