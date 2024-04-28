@@ -23,14 +23,12 @@ const App = () => {
     }
   };
 
-  const handleCheckboxChange = (id: number, checked: boolean) => {
+  const handleCheckboxChange = (key: number, checked: boolean) => {
     setCheckedItems((prevState) => {
-      const updatedItems = { ...prevState, [id]: checked };
+      const updatedItems = { ...prevState, [key]: checked };
       const checkedLabels = Object.keys(updatedItems)
-        .filter((id: string) => updatedItems[parseInt(id)])
-        .map((checkedId) => checkList.categories[0].items.find((item) => item.id === parseInt(checkedId)))
-        .filter((item) => item !== undefined)
-        .map((item) => item!.label);
+        .filter((key) => updatedItems[parseInt(key)])
+        .map((key) => checkList.categories[selectedCategory].items[parseInt(key)].label);
       const outputText = checkList.outputText + "\n" + checkedLabels.map((label) => `${checkList.confirmedStatus}: ${label}`).join("\n");
       setText(outputText);
       return updatedItems;
@@ -51,9 +49,9 @@ const App = () => {
         {selectedCategory < 0 ? (
           <></>
         ) : (
-          checkList.categories[selectedCategory].items.map((item) => (
-            <li key={item.id}>
-              <ToggleWithLabel {...item} checked={checkedItems[item.id] || false} onChange={(e) => handleCheckboxChange(item.id, e.target.checked)} />
+          checkList.categories[selectedCategory].items.map((item, key) => (
+            <li key={item.label}>
+              <ToggleWithLabel {...item} checked={checkedItems[key] || false} onChange={(e) => handleCheckboxChange(key, e.target.checked)} />
             </li>
           ))
         )}

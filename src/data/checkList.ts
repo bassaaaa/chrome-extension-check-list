@@ -4,7 +4,6 @@ type CheckList = {
   categories: {
     categoryName: string;
     items: {
-      id: number;
       label: string;
       tip: string;
     }[];
@@ -20,17 +19,14 @@ export const checkList: CheckList = {
       categoryName: "カテゴリ1",
       items: [
         {
-          id: 1,
           label: "チェック項目1",
           tip: "補足事項1",
         },
         {
-          id: 2,
           label: "チェック項目2",
           tip: "補足事項2",
         },
         {
-          id: 3,
           label: "チェック項目3",
           tip: "補足事項3",
         },
@@ -40,12 +36,10 @@ export const checkList: CheckList = {
       categoryName: "カテゴリ2",
       items: [
         {
-          id: 1,
           label: "チェック項目1",
           tip: "補足事項1",
         },
         {
-          id: 2,
           label: "チェック項目2",
           tip: "補足事項2",
         },
