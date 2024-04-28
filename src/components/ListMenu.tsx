@@ -1,6 +1,6 @@
 type Props = {
   title: string;
-  children: React.ReactNode[];
+  children: React.ReactNode;
 };
 
 export const ListMenu = (props: Props) => {
