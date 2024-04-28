@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a repository for a Chrome extension checklist.
+This is a repository for a Chrome extension checklist generator.
 
 ## Installation
 
@@ -12,7 +12,7 @@ This is a repository for a Chrome extension checklist.
    npm install
    ```
 
-2. Build.
+2. Build, then `/dist` directory will be created.
 
    ```
    npm run build
