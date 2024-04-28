@@ -27,8 +27,8 @@ export const App = () => {
     setCheckedItems((prevState) => {
       const updatedItems = { ...prevState, [key]: checked };
       const checkedLabels = Object.keys(updatedItems)
-        .filter((key) => updatedItems[parseInt(key)])
-        .map((key) => checkList.categories[selectedCategory].items[parseInt(key)].label);
+        .filter((key) => updatedItems[Number(key)])
+        .map((key) => checkList.categories[selectedCategory].items[Number(key)].label);
       const outputText = checkList.outputText + "\n" + checkedLabels.map((label) => `${checkList.confirmed}: ${label}`).join("\n");
       setText(outputText);
       return updatedItems;
@@ -42,21 +42,23 @@ export const App = () => {
     setSelectedCategory(selectedIndex);
   };
 
+  const CategoryItems = () => {
+    if (selectedCategory < 0) return null;
+
+    return checkList.categories[selectedCategory].items.map((item, key) => (
+      <li key={item.label}>
+        <ToggleWithLabel {...item} checked={checkedItems[key] || false} onChange={(e) => handleCheckboxChange(key, e.target.checked)} />
+      </li>
+    ));
+  };
+
   return (
     <div className="p-2 w-96 flex flex-col gap-2 m-auto">
       <ListMenu title={checkList.checkListTitle}>
         <SelectBox onChange={handleSelectBoxChange} />
-        {selectedCategory < 0 ? (
-          <></>
-        ) : (
-          checkList.categories[selectedCategory].items.map((item, key) => (
-            <li key={item.label}>
-              <ToggleWithLabel {...item} checked={checkedItems[key] || false} onChange={(e) => handleCheckboxChange(key, e.target.checked)} />
-            </li>
-          ))
-        )}
+        <CategoryItems />
       </ListMenu>
-      <Textarea id="textarea" value={text} onChange={(e) => setText(e.target.value)} />
+      <Textarea value={text} onChange={(e) => setText(e.target.value)} />
       <CopyButton onClick={handleCopy} disabled={text === ""} />
       <Modal text={text} />
     </div>
