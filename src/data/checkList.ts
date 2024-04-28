@@ -1,6 +1,6 @@
 type CheckList = {
   checkListTitle: string;
-  confirmedStatus: string;
+  confirmed: string;
   categories: {
     categoryName: string;
     items: {
@@ -13,7 +13,7 @@ type CheckList = {
 
 export const checkList: CheckList = {
   checkListTitle: "Check List Generator",
-  confirmedStatus: "✓",
+  confirmed: "✓",
   categories: [
     {
       categoryName: "カテゴリ1",

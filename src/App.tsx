@@ -29,7 +29,7 @@ export const App = () => {
       const checkedLabels = Object.keys(updatedItems)
         .filter((key) => updatedItems[parseInt(key)])
         .map((key) => checkList.categories[selectedCategory].items[parseInt(key)].label);
-      const outputText = checkList.outputText + "\n" + checkedLabels.map((label) => `${checkList.confirmedStatus}: ${label}`).join("\n");
+      const outputText = checkList.outputText + "\n" + checkedLabels.map((label) => `${checkList.confirmed}: ${label}`).join("\n");
       setText(outputText);
       return updatedItems;
     });
