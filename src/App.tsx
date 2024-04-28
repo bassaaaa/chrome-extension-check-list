@@ -5,6 +5,7 @@ import { useState } from "react";
 import { checkList } from "./data/checkList";
 import { ToggleWithLabel } from "./components/ToggleWithLabel";
 import { Modal } from "./components/Modal";
+import { Selectbox } from "./components/Selectbox";
 
 const App = () => {
   const [text, setText] = useState(checkList.outputText);
@@ -38,6 +39,7 @@ const App = () => {
   return (
     <div className="p-2 w-96 flex flex-col gap-2 m-auto">
       <ListMenu title={checkList.title}>
+        <Selectbox />
         {checkList.items.map((item) => (
           <li key={item.id}>
             <ToggleWithLabel {...item} checked={checkedItems[item.id] || false} onChange={(e) => handleCheckboxChange(item.id, e.target.checked)} />
