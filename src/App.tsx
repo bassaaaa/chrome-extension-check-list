@@ -5,7 +5,7 @@ import { useState } from "react";
 import { checkList } from "./data/checkList";
 import { ToggleWithLabel } from "./components/ToggleWithLabel";
 import { Modal } from "./components/Modal";
-import { Selectbox } from "./components/Selectbox";
+import { SelectBox } from "./components/SelectBox";
 
 const App = () => {
   const [text, setText] = useState(checkList.outputText);
@@ -27,7 +27,7 @@ const App = () => {
       const updatedItems = { ...prevState, [id]: checked };
       const checkedLabels = Object.keys(updatedItems)
         .filter((id: string) => updatedItems[parseInt(id)])
-        .map((checkedId) => checkList.items.find((item) => item.id === parseInt(checkedId)))
+        .map((checkedId) => checkList.categories[0].items.find((item) => item.id === parseInt(checkedId)))
         .filter((item) => item !== undefined)
         .map((item) => item!.label);
       const outputText = checkList.outputText + "\n" + checkedLabels.map((label) => `${checkList.confirmedStatus}: ${label}`).join("\n");
@@ -38,9 +38,9 @@ const App = () => {
 
   return (
     <div className="p-2 w-96 flex flex-col gap-2 m-auto">
-      <ListMenu title={checkList.title}>
-        <Selectbox />
-        {checkList.items.map((item) => (
+      <ListMenu title={checkList.checkListTitle}>
+        <SelectBox />
+        {checkList.categories[0].items.map((item) => (
           <li key={item.id}>
             <ToggleWithLabel {...item} checked={checkedItems[item.id] || false} onChange={(e) => handleCheckboxChange(item.id, e.target.checked)} />
           </li>
