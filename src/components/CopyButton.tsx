@@ -5,12 +5,8 @@ type Props = {
 
 export const CopyButton = (props: Props) => {
   const { onClick, disabled } = props;
-  return disabled ? (
-    <button className="btn mx-auto" disabled={disabled}>
-      クリップボードにコピー
-    </button>
-  ) : (
-    <button className="btn btn-outline btn-success mx-auto" onClick={onClick} disabled={disabled}>
+  return (
+    <button className={`btn mx-auto ${disabled ? "" : "btn-outline btn-success"}`} onClick={onClick} disabled={disabled}>
       クリップボードにコピー
     </button>
   );
