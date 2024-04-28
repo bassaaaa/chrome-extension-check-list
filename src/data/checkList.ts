@@ -49,11 +49,6 @@ export const checkList: CheckList = {
           label: "チェック項目2",
           tip: "補足事項2",
         },
-        {
-          id: 3,
-          label: "チェック項目3",
-          tip: "補足事項3",
-        },
       ],
     },
   ],

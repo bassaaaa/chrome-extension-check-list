@@ -10,6 +10,7 @@ import { SelectBox } from "./components/SelectBox";
 const App = () => {
   const [text, setText] = useState(checkList.outputText);
   const [checkedItems, setCheckedItems] = useState<{ [id: number]: boolean }>({});
+  const [selectedCategory, setSelectedCategory] = useState<number>(-1);
 
   const handleCopy: () => void = () => {
     try {
@@ -36,15 +37,26 @@ const App = () => {
     });
   };
 
+  const handleSelectBoxChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedIndex = event.target.selectedIndex - 1;
+    setCheckedItems({});
+    setText(checkList.outputText);
+    setSelectedCategory(selectedIndex);
+  };
+
   return (
     <div className="p-2 w-96 flex flex-col gap-2 m-auto">
       <ListMenu title={checkList.checkListTitle}>
-        <SelectBox />
-        {checkList.categories[0].items.map((item) => (
-          <li key={item.id}>
-            <ToggleWithLabel {...item} checked={checkedItems[item.id] || false} onChange={(e) => handleCheckboxChange(item.id, e.target.checked)} />
-          </li>
-        ))}
+        <SelectBox onChange={handleSelectBoxChange} />
+        {selectedCategory < 0 ? (
+          <></>
+        ) : (
+          checkList.categories[selectedCategory].items.map((item) => (
+            <li key={item.id}>
+              <ToggleWithLabel {...item} checked={checkedItems[item.id] || false} onChange={(e) => handleCheckboxChange(item.id, e.target.checked)} />
+            </li>
+          ))
+        )}
       </ListMenu>
       <Textarea id="textarea" value={text} onChange={(e) => setText(e.target.value)} />
       <CopyButton onClick={handleCopy} disabled={text === ""} />
