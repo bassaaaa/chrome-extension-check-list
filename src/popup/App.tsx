@@ -1,11 +1,11 @@
-import { ListMenu } from "./components/ListMenu";
-import { CopyButton } from "./components/CopyButton";
-import { Textarea } from "./components/Textarea";
+import { ListMenu } from "../components/ListMenu";
+import { CopyButton } from "../components/CopyButton";
+import { Textarea } from "../components/Textarea";
 import { useState } from "react";
-import { checkList } from "./data/checkList";
-import { ToggleWithLabel } from "./components/ToggleWithLabel";
-import { Modal } from "./components/Modal";
-import { SelectBox } from "./components/SelectBox";
+import { checkList } from "../data/checkList";
+import { ToggleWithLabel } from "../components/ToggleWithLabel";
+import { Modal } from "../components/Modal";
+import { SelectBox } from "../components/SelectBox";
 
 export const App = () => {
   const [text, setText] = useState(checkList.outputText);
