@@ -26,15 +26,15 @@ export const checkList: CheckList = {
   common: "共通項目",
   commonItems: [
     {
-      label: "アイテム1",
+      label: "共通アイテム1",
       tip: "補足事項",
     },
     {
-      label: "アイテム2",
+      label: "共通アイテム2",
       tip: "補足事項",
     },
     {
-      label: "アイテム3",
+      label: "共通アイテム3",
       tip: "補足事項",
     },
   ],
