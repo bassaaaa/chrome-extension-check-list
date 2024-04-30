@@ -1,50 +1,83 @@
 type CheckList = {
   checkListTitle: string;
   confirmed: string;
-  categories: {
-    categoryName: string;
-    items: {
-      label: string;
-      tip: string;
-    }[];
-  }[];
   outputText: string;
+  common: string;
+  commonItems: {
+    label: string;
+    tip: string;
+  }[];
+  categories: {
+    primary: string;
+    primaryItem: {
+      secondary: string;
+      secondaryItems: {
+        label: string;
+        tip: string;
+      }[];
+    };
+  }[];
 };
 
 export const checkList: CheckList = {
   checkListTitle: "Check List Generator",
-  confirmed: "✓",
-  categories: [
+  confirmed: "✔",
+  outputText: "以下のとおりチェック完了しました。",
+  common: "共通項目",
+  commonItems: [
     {
-      categoryName: "カテゴリ1",
-      items: [
-        {
-          label: "チェック項目1",
-          tip: "補足事項1",
-        },
-        {
-          label: "チェック項目2",
-          tip: "補足事項2",
-        },
-        {
-          label: "チェック項目3",
-          tip: "補足事項3",
-        },
-      ],
+      label: "アイテム1",
+      tip: "補足事項",
     },
     {
-      categoryName: "カテゴリ2",
-      items: [
-        {
-          label: "チェック項目1",
-          tip: "補足事項1",
-        },
-        {
-          label: "チェック項目2",
-          tip: "補足事項2",
-        },
-      ],
+      label: "アイテム2",
+      tip: "補足事項",
+    },
+    {
+      label: "アイテム3",
+      tip: "補足事項",
     },
   ],
-  outputText: "以下のとおりチェック完了しました。",
+  categories: [
+    {
+      primary: "カテゴリ1",
+      primaryItem: {
+        secondary: "チェック項目1",
+        secondaryItems: [
+          {
+            label: "アイテム1",
+            tip: "補足事項",
+          },
+          {
+            label: "アイテム2",
+            tip: "補足事項",
+          },
+          {
+            label: "アイテム3",
+            tip: "補足事項",
+          },
+        ],
+      },
+    },
+    {
+      primary: "カテゴリ2",
+      primaryItem: {
+        secondary: "チェック項目2",
+        secondaryItems: [
+          {
+            label: "アイテム1",
+            tip: "補足事項",
+          },
+          {
+            label: "アイテム2",
+            tip: "補足事項",
+          },
+          {
+            label: "アイテム3",
+            tip: "補足事項",
+          },
+        ],
+      },
+    },
+  ],
 };

@@ -12,15 +12,13 @@ export const SelectBox = (props: Props) => {
         <option disabled value="">
           カテゴリを選択してください
         </option>
-        {checkList.categories &&
-          checkList.categories.length > 0 &&
-          checkList.categories.map((category) => {
-            return (
-              <option key={category.categoryName} value={category.categoryName}>
-                {category.categoryName}
-              </option>
-            );
-          })}
+        {checkList.categories.map((category) => {
+          return (
+            <option key={category.primary} value={category.primary}>
+              {category.primary}
+            </option>
+          );
+        })}
       </select>
     </div>
   );
