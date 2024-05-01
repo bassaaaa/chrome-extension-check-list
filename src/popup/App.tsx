@@ -7,16 +7,11 @@ import { ToggleWithLabel } from "../components/ToggleWithLabel";
 import { Modal } from "../components/Modal";
 import { SelectBox } from "../components/SelectBox";
 
-type ListItems = {
-  label: string;
-  tip: string;
-}[];
-
 export const App = () => {
   const [text, setText] = useState(checkList.outputText);
   const [checkedItems, setCheckedItems] = useState<{ [id: number]: boolean }>({});
   const [selectedCategory, setSelectedCategory] = useState<number>(-1);
-  const [listItems, setListItems] = useState<ListItems>(checkList.commonItems);
+  const [listItems, setListItems] = useState<string[]>(checkList.commonItems);
 
   const handleCopy: () => void = () => {
     try {
@@ -38,7 +33,7 @@ export const App = () => {
           const listItem = listItems[Number(key)];
           return {
             key: Number(key),
-            label: listItem.label,
+            label: listItem,
           };
         });
       const commonItems = checkedItems.filter((item) => item.key < checkList.commonItems.length);
@@ -46,8 +41,18 @@ export const App = () => {
       const outputText =
         checkList.outputText +
         "\n" +
-        (commonItems.length > 0 ? "\n" + checkList.common + "\n" + commonItems.map((item) => `${checkList.confirmed} ${item.label}`).join("\n") : "") +
-        (secondaryItems.length > 0 ? "\n" + checkList.categories[selectedCategory].primaryItem.secondary + "\n" + secondaryItems.map((item) => `${checkList.confirmed} ${item.label}`).join("\n") : "");
+        (commonItems.length > 0
+          ? "\n" +
+            checkList.common +
+            "\n" +
+            commonItems.map((item) => `${checkList.confirmed} ${item.label}`).join("\n")
+          : "") +
+        (secondaryItems.length > 0
+          ? "\n" +
+            checkList.categories[selectedCategory].primaryItem.secondary +
+            "\n" +
+            secondaryItems.map((item) => `${checkList.confirmed} ${item.label}`).join("\n")
+          : "");
       setText(outputText);
       return updatedItems;
     });
@@ -72,10 +77,22 @@ export const App = () => {
           <div>
             <div className="ml-2 my-2 font-bold">{checkList.common}</div>
             {listItems.map((item, key) => (
-              <div key={item.label}>
-                <>{key === checkList.commonItems.length ? <div className="ml-2 my-2 font-bold">{checkList.categories[selectedCategory].primaryItem.secondary}</div> : <></>}</>
+              <div key={item}>
+                <>
+                  {key === checkList.commonItems.length ? (
+                    <div className="ml-2 my-2 font-bold">
+                      {checkList.categories[selectedCategory].primaryItem.secondary}
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </>
                 <li>
-                  <ToggleWithLabel {...item} checked={checkedItems[key] || false} onChange={(e) => handleCheckboxChange(key, e.target.checked)} />
+                  <ToggleWithLabel
+                    label={item}
+                    checked={checkedItems[key] || false}
+                    onChange={(e) => handleCheckboxChange(key, e.target.checked)}
+                  />
                 </li>
               </div>
             ))}
